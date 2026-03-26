@@ -469,9 +469,7 @@ h4,
 /* =========================================================================
    SECTION BACKGROUNDS — ALTERNATING RHYTHM
    ========================================================================= */
-.section-probleem {
-    background-color: #ffffff;
-}
+/* background set by section-dark class */
 
 .section-bewijs {
     background-color: var(--color-bg-light);
@@ -570,10 +568,14 @@ h4,
     padding: var(--space-md) 0 var(--space-lg) 0;
 }
 
+.probleem-subtitle {
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
 .probleem-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -584,13 +586,42 @@ h4,
 }
 
 .probleem-card {
-    padding: 2rem;
-    height: 100%;
+    padding: 2.5rem 2rem;
+    border-top: 3px solid var(--color-neon);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.probleem-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-neon);
+    opacity: 0.2;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
+}
+
+.probleem-card .geometric-header {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
 }
 
 .probleem-card p {
-    color: var(--color-text-gray);
-    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0;
+    line-height: 1.65;
+    font-size: 0.95rem;
+}
+
+.probleem-footer-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 660px;
+    margin: 0 auto;
+    line-height: 1.75;
 }
 
 /* =========================================================================
@@ -1165,4 +1196,35 @@ h4,
 
 .pb-2 {
     padding-bottom: 1rem;
+}
+
+/* MID-PAGE CTA STRIP */
+.midcta {
+    padding: 5rem 0;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.midcta__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--color-neon);
+    margin-bottom: 1.25rem;
+}
+
+.midcta__heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-text-light);
+    margin-bottom: 1.25rem;
+}
+
+.midcta__sub {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.65;
 }
