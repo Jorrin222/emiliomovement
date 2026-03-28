@@ -214,25 +214,42 @@ h4,
 }
 
 .site-header.scrolled {
-    background: rgba(28, 25, 20, 0.96);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(28, 25, 20, 0.97);
     box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
 }
 
+/* Mobile: flex, logo left / hamburger right */
 .site-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Desktop: 3-column grid — logo | links | cta */
+@media (min-width: 768px) {
+    .site-nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
+}
+
 .nav-logo {
-    display: flex;
-    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+}
+
+.nav-logo span {
+    color: var(--color-neon);
 }
 
 .site-header.scrolled .nav-logo {
@@ -240,17 +257,11 @@ h4,
     pointer-events: auto;
 }
 
-.nav-logo-img {
-    height: 44px;
-    width: auto;
-    filter: invert(1) hue-rotate(180deg) brightness(1.2);
-    mix-blend-mode: screen;
-}
-
 .nav-links {
     display: none;
     align-items: center;
     gap: 2.5rem;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -260,10 +271,10 @@ h4,
 }
 
 .nav-link {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -275,10 +286,33 @@ h4,
     color: var(--color-neon);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
 .nav-cta {
-    padding: 0.6rem 1.5rem;
+    padding: 0.55rem 1.4rem;
     clip-path: none !important;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
+}
+
+/* Desktop-only CTA (in nav-right) */
+.nav-desktop-cta {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .nav-desktop-cta {
+        display: inline-flex;
+    }
+}
+
+/* Overlay-only CTA (inside nav-links) — hidden in desktop row */
+.nav-overlay-cta {
+    display: none;
 }
 
 .mobile-menu-btn {
@@ -319,6 +353,12 @@ h4,
 .nav-links.open .nav-link {
     font-size: 1.5rem;
     letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Show CTA in mobile overlay */
+.nav-links.open .nav-overlay-cta {
+    display: inline-flex;
 }
 
 /* =========================================================================
