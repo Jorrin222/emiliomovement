@@ -5,18 +5,19 @@
 
 :root {
     /* Colors */
-    --color-bg-dark: #1a1a1a;
-    --color-bg-black: #111111;
-    --color-bg-light: #f8f6f2;
-    --color-bg-gray: #f0eeea;
+    --color-bg-dark: #1c1914;      /* warm dark brown-black */
+    --color-bg-black: #0f0d0b;     /* deepest warm black */
+    --color-bg-light: #f7f4ef;     /* warm off-white cream */
+    --color-bg-warm: #eeebe4;      /* deeper warm cream for alternating sections */
 
-    --color-text-dark: #121212;
-    --color-text-light: #ffffff;
-    --color-text-gray: #666666;
+    --color-text-dark: #1a1714;
+    --color-text-light: #faf8f5;
+    --color-text-gray: #6b6560;    /* warm gray, not blue-gray */
 
     /* The Signature Neon Green from the Logo */
     --color-neon: #11df11;
     --color-neon-hover: #0ed00e;
+    --color-neon-dim: rgba(17, 223, 17, 0.12);
 
     /* Typography */
     --font-heading: 'Montserrat', sans-serif;
@@ -85,6 +86,11 @@ h4,
     background-color: var(--color-bg-light);
     color: var(--color-text-dark);
     padding: var(--space-xl) 0;
+}
+
+.section-warm {
+    background-color: var(--color-bg-warm);
+    color: var(--color-text-dark);
 }
 
 .text-white {
@@ -208,10 +214,10 @@ h4,
 }
 
 .site-header.scrolled {
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(28, 25, 20, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
 }
 
 .site-nav {
@@ -472,19 +478,19 @@ h4,
 /* background set by section-dark class */
 
 .section-bewijs {
-    background-color: var(--color-bg-light);
+    background-color: #ffffff;
 }
 
 .section-services {
-    background-color: #ffffff;
-}
-
-.section-faq {
     background-color: var(--color-bg-light);
 }
 
-.section-contact {
+.section-faq {
     background-color: #ffffff;
+}
+
+.section-contact {
+    background-color: var(--color-bg-warm);
 }
 
 /* Neon underline accent on centered section headings */
@@ -565,18 +571,20 @@ h4,
    PROBLEEMHERKENNING SECTION
    ========================================================================= */
 .section-probleem {
-    padding: var(--space-md) 0 var(--space-lg) 0;
+    padding: var(--space-lg) 0 calc(var(--space-lg) + 1rem);
+    background-color: var(--color-bg-warm);
 }
 
 .probleem-subtitle {
-    color: rgba(255, 255, 255, 0.55) !important;
+    color: var(--color-text-gray);
 }
 
 .probleem-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 3rem;
+    gap: 0;
+    margin-top: 3.5rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
 }
 
 @media (min-width: 768px) {
@@ -586,42 +594,60 @@ h4,
 }
 
 .probleem-card {
-    padding: 2.5rem 2rem;
-    border-top: 3px solid var(--color-neon);
-    background-color: rgba(255, 255, 255, 0.04);
+    position: relative;
+    padding: 2.5rem 2rem 2.5rem 2.25rem;
+    border-left: 3px solid var(--color-neon);
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: background 0.35s ease;
+}
+
+@media (min-width: 768px) {
+    .probleem-card {
+        border-bottom: none;
+        border-right: 1px solid rgba(0,0,0,0.08);
+    }
+    .probleem-card:last-child {
+        border-right: none;
+    }
+}
+
+.probleem-card:hover {
+    background: rgba(255, 255, 255, 0.55);
 }
 
 .probleem-num {
     display: block;
     font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 800;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
     color: var(--color-neon);
-    opacity: 0.2;
-    line-height: 1;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.04em;
+    margin-bottom: 1.25rem;
 }
 
 .probleem-card .geometric-header {
-    font-size: 1.1rem;
-    color: var(--color-text-light);
-    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.9rem;
+    letter-spacing: -0.01em;
 }
 
 .probleem-card p {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-text-gray);
     margin-top: 0;
-    line-height: 1.65;
+    line-height: 1.7;
     font-size: 0.95rem;
 }
 
 .probleem-footer-text {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(255, 255, 255, 0.5);
-    max-width: 660px;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--color-text-gray);
+    max-width: 620px;
     margin: 0 auto;
-    line-height: 1.75;
+    line-height: 1.8;
+    font-style: italic;
 }
 
 /* =========================================================================
@@ -706,7 +732,7 @@ h4,
 
 .service-card {
     background-color: #ffffff;
-    border: 1px solid #e0ddd7;
+    border: 1px solid rgba(0,0,0,0.09);
     transition: all 0.3s ease;
     overflow: hidden;
     position: relative;
@@ -726,9 +752,9 @@ h4,
 }
 
 .service-card:hover {
-    border-color: #c0bdb7;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0,0,0,0.14);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
 }
 
 .service-card:hover::after {
@@ -774,7 +800,7 @@ h4,
 
 .service-details {
     list-style: none;
-    border-top: 1px solid #e0ddd7;
+    border-top: 1px solid rgba(0,0,0,0.07);
     padding-top: 1rem;
 }
 
@@ -805,14 +831,17 @@ h4,
 }
 
 .box-border {
-    border: 2px solid var(--color-bg-dark);
-    padding: 2rem;
-    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-left: 3px solid var(--color-text-dark);
+    padding: 1.75rem 2rem;
+    background: rgba(255,255,255,0.5);
+    transition: all 0.25s ease;
 }
 
 .box-border:hover {
-    box-shadow: 8px 8px 0px var(--color-neon);
-    transform: translate(-4px, -4px);
+    border-left-color: var(--color-neon);
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
 }
 
 .flex-center {
@@ -877,11 +906,11 @@ h4,
 
 /* FAQ Accordion */
 .faq-accordion {
-    border-top: 1px solid #d8d5d0;
+    border-top: 1px solid rgba(0,0,0,0.09);
 }
 
 .faq-item {
-    border-bottom: 1px solid #d8d5d0;
+    border-bottom: 1px solid rgba(0,0,0,0.09);
 }
 
 .faq-question {
@@ -940,11 +969,11 @@ h4,
 }
 
 .box-border-neon {
-    border: 1px solid #e0ddd7;
+    border: 1px solid rgba(0,0,0,0.08);
     padding: 3rem;
-    background-color: #f8f6f2;
+    background-color: #ffffff;
     position: relative;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .box-border-neon::before {
@@ -1034,9 +1063,42 @@ h4,
    ========================================================================= */
 .landing-footer {
     padding: 4rem 0 2rem;
-    border-top: 1px solid #e0ddd7;
-    background-color: var(--color-bg-light);
-    color: var(--color-text-dark);
+    border-top: 1px solid rgba(0,0,0,0.09);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+}
+
+.landing-footer .footer-tagline {
+    color: rgba(255,255,255,0.45);
+}
+
+.landing-footer .footer-social-link {
+    color: rgba(255,255,255,0.55);
+}
+
+.landing-footer .footer-social-link:hover {
+    color: var(--color-neon);
+}
+
+.landing-footer .footer-links a {
+    color: rgba(255,255,255,0.45);
+}
+
+.landing-footer .footer-links a:hover {
+    color: var(--color-text-light);
+}
+
+.landing-footer .footer-contact-item {
+    color: rgba(255,255,255,0.45);
+}
+
+.landing-footer .footer-grid {
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+
+.landing-footer .footer-copyright,
+.landing-footer .footer-kvk {
+    color: rgba(255,255,255,0.3);
 }
 
 .footer-grid {
@@ -1044,7 +1106,7 @@ h4,
     grid-template-columns: 1fr;
     gap: 3rem;
     padding-bottom: 3rem;
-    border-bottom: 1px solid #e0ddd7;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 @media (min-width: 768px) {
