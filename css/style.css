@@ -466,7 +466,7 @@ h4,
 }
 
 .hero-title {
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: clamp(2rem, 7vw, 6rem);
     margin-bottom: 1.5rem;
     color: var(--color-text-light);
     text-shadow: 0 2px 40px rgba(0, 0, 0, 0.9), 0 0 80px rgba(0, 0, 0, 0.6);
@@ -574,8 +574,14 @@ h4,
 }
 
 .sticky-element {
-    position: sticky;
-    top: 6rem;
+    position: static;
+}
+
+@media (min-width: 768px) {
+    .sticky-element {
+        position: sticky;
+        top: 6rem;
+    }
 }
 
 .section-title {
@@ -747,6 +753,65 @@ h4,
     aspect-ratio: 16 / 9;
     object-fit: cover;
     background-color: var(--color-bg-black);
+}
+
+/* =========================================================================
+   REVIEWS SECTION
+   ========================================================================= */
+.section-reviews {
+    padding: var(--space-xl) 0;
+    background-color: #ffffff;
+    color: var(--color-text-dark);
+}
+
+.review-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.review-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: var(--color-bg-black);
+}
+
+.review-quote {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    font-weight: 700;
+    line-height: 1.65;
+    color: var(--color-text-dark);
+    font-style: normal;
+    margin: 0 0 2rem 0;
+    border-left: 3px solid var(--color-neon);
+    padding-left: 1.75rem;
+}
+
+.review-author {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+.review-role {
+    font-size: 0.85rem;
+    color: var(--color-text-gray);
+    margin: 0.35rem 0 0 0;
+    letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+    .review-block {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* =========================================================================
