@@ -4,6 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Consent Mode v2 defaults (must be before GTM) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            wait_for_update: 500
+        });
+        if (localStorage.getItem('em_consent') === 'granted') {
+            gtag('consent', 'update', {
+                ad_storage: 'granted',
+                analytics_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted'
+            });
+        }
+    </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,6 +31,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P28BB9PL');</script>
     <!-- End Google Tag Manager -->
+    <link rel="icon" type="image/webp" href="Assets/Emlio movement logo.webp">
     <title>Bedankt voor je aanvraag | Emilio Movement</title>
     <meta name="robots" content="noindex, nofollow">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -93,6 +114,17 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" role="dialog" aria-label="Cookiemelding">
+        <p class="cookie-banner__text">
+            We gebruiken cookies voor advertenties en analyses. Zo kunnen we zien welke trainingen aansluiten bij jouw zoekvraag.
+        </p>
+        <div class="cookie-banner__actions">
+            <button id="cookie-accept">Akkoord</button>
+            <button id="cookie-decline">Weigeren</button>
+        </div>
+    </div>
+
     <div class="bedankt-card">
         <div class="bedankt-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -105,6 +137,7 @@
         </p>
         <a href="https://info.emiliomovement.nl" class="bedankt-back">Terug naar de website</a>
     </div>
+    <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>
